@@ -2,7 +2,10 @@
 #define fsrTwo 4
 #define fsrThree 5
 #define fsrFour 6
-#define pir 10
+#define pir 12
+#define blue 11
+#define red 10
+#define green 9
 
 int fsr1 = 0;
 int fsr2 = 0;
@@ -21,14 +24,20 @@ void setup() {
   pinMode(fsrThree, INPUT);
   pinMode(fsrFour, INPUT);
   pinMode(pir, INPUT);
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+  
   delay(500);
 }
 
 void loop() {
 
-  //pirSensor = digitalRead(pir);
-  pirSensor = 1;
+  pirSensor = digitalRead(pir);
+  //pirSensor = 1;
   if (pirSensor) {
+    digitalWrite(red, HIGH);
+    Serial.print("triggered");
     if (!playing){
       playing = true;
       Serial.println("game started");
