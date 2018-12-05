@@ -36,7 +36,7 @@ void loop(void)
   Serial.print(event.orientation.z, 4);
   Serial.println("");
 
-  if (event.orientation.z < -20){
+  if (event.orientation.y > 20 && event.orientation.y < 83 && event.orientation.z > -120 && event.orientation.z < -5){
     digitalWrite(5, HIGH);
   } else {
     digitalWrite(5, LOW);
